@@ -1,3 +1,14 @@
 page-about {
+  .block{
+    position:relative;
+    .picture{
+      position: absolute;
+      margin-left: 100%;
+    }
+    .match{
+    //  position: fixed;
+      float: right;
+    }
 
+}
 }

@@ -1,17 +1,55 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <link href=' http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<h1 style="margin-left:24%;margin-top:10%;">Match N' Dash</h1>
+<br/>
+<br/>
+<br/>
+
+<br/>
+
+<img src="https://files.slack.com/files-pri/T17R4TFAM-F6BMUUJBB/screen_shot_2017-07-21_at_10.47.52_pm.png" style="width:128px; margin-left:30%;"/>
+
+<!--CAMERA-->
+
+<br/>
+<br/>
+<br/>
+
+
+<!--(click)="load()" - DATABASE-->
+
+<ion-row>
+  <br>
+  <ion-col col-sm-4><img (click)="takePhoto()" src="./assets/images/camera.png" style="width:100px; float:left; margin-top:8%;"></ion-col>
+
+  <ion-col col-sm-4><img (click)="load3()" src="./assets/images/closet.png" style="width:83px; float:right;"></ion-col>
+  </ion-row>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<!-- code for taking photos through camera-->
+
+<ion-grid>
+<ion-row>
+<ion-col col-6 *ngFor="let photo of photos; let id = index">
+  <!--ACTUAL PHOTO-->
+  <ion-card class="block">
+    <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+    <img [src]="photo" *ngIf="photo">
+  </ion-card>
+</ion-col>
+</ion-row>
+</ion-grid>
+
 </ion-content>

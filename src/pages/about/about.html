@@ -1,11 +1,66 @@
 <ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Dirty Clothes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <button ion-button large half block outline (click)="load3()" style="color:orange;border-color:black;">Dirty</button>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+<img (click)="Shirt()"src="./assets/images/shirt.png" style="width:100px; height:100px;margin-left:11%;">
+<img  src="http://www.drodd.com/images14/black15.jpg" style="width:2px; height:100px;margin-left:8%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <img (click)="Pant()"src="./assets/images/pants.png" style="width:80px; height:100px;margin-left:4%;">
+      <hr>
+
+
+      <img (click)="Hat()" src="./assets/images/hat.png" style="width:100px; height:100px;margin-left:9%;">
+<img  src="http://www.drodd.com/images14/black15.jpg" style="width:2px; height:100px;margin-left:10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img (click)="Shoe()" src="./assets/images/shoe.png" style="width:87px; height:50px;margin-left:4%;">
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let todo of todos | async">
+      <ion-item>
+        {{ todo.text }}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="removeTodo(todo._id)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="addTodo()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      CAMERA
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-grid>
+  <ion-row>
+<ion-card>
+<img src="https://i.ytimg.com/vi/XIMLoLxmTDw/hqdefault.jpg" style="height:600px;"/>
+<ion-icon class="picture" name="radio-button-off" style="align:center;"></ion-icon>
+<ion-icon class="match" name="checkmark-circle-outline" (click)="load()" style="float:right;"></ion-icon>
+</ion-card>
+  </ion-row>
 
-</ion-content>
+  </ion-grid>
+
+</ion-content> -->

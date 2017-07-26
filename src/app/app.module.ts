@@ -2,14 +2,28 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
+import { Camera } from '@ionic-native/camera';
+import { HttpModule } from '@angular/http';
+//import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+//PAGES
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SigninPage } from '../pages/signin/signin';
+import { SignupPage } from '../pages/signup/signup';
+import { ClosetPage } from '../pages/closet/closet';
+import { HatsPage } from '../pages/hats/hats';
+import { PantsPage } from '../pages/pants/pants';
+import { ShirtPage } from '../pages/shirt/shirt';
+import { ShoesPage } from '../pages/shoes/shoes';
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppSettingsProvider } from '../providers/app-settings/app-settings';
+import { TodoServiceProvider } from '../providers/todo-service/todo-service';
 
 @NgModule({
   declarations: [
@@ -17,9 +31,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    SigninPage,
+    SignupPage,
+    ClosetPage,
+    HatsPage,
+    PantsPage,
+    ShirtPage,
+    ShoesPage,
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -29,12 +51,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    SigninPage,
+    SignupPage,
+    ClosetPage,
+    HatsPage,
+    PantsPage,
+    ShirtPage,
+    ShoesPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppSettingsProvider,
+    TodoServiceProvider
   ]
 })
 export class AppModule {}
