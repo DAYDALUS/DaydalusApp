@@ -6,8 +6,19 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <button ion-button large half block outline (click)="load3()" style="color:orange;border-color:black;">Dirty</button>
+<ion-content text-center>
+  <!-- <button ion-button large half block outline (click)="load()" style="color:orange;border-color:black;">Clean</button> -->
+  <div class="tab">
+    <button ion-button (click)="load3()">Clean</button>
+    <button ion-button class="tablinks">Dirty</button>
+  </div>
+    <ion-grid class="grid">
+    <ion-row>
+      <ion-col col-sm-4><img (click)="Shirt()" src="./assets/images/shirt.png"></ion-col>
+      <ion-col col-sm-4><img (click)="Pant()" src="./assets/images/pants.png"></ion-col>
+      </ion-row>
+    </ion-grid>
+  <!-- <button ion-button large half block outline (click)="load3()" style="color:orange;border-color:black;">Dirty</button>
     <br/>
     <br/>
     <br/>
@@ -22,7 +33,7 @@
 
       <img (click)="Hat()" src="./assets/images/hat.png" style="width:100px; height:100px;margin-left:9%;">
 <img  src="http://www.drodd.com/images14/black15.jpg" style="width:2px; height:100px;margin-left:10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <img (click)="Shoe()" src="./assets/images/shoe.png" style="width:87px; height:50px;margin-left:4%;">
+      <img (click)="Shoe()" src="./assets/images/shoe.png" style="width:87px; height:50px;margin-left:4%;"> -->
 
   <ion-list>
     <ion-item-sliding *ngFor="let todo of todos | async">

@@ -8,32 +8,79 @@
 
   <ion-navbar color="primary">
     <ion-title>CLOSET</ion-title>
-  </ion-navbar>
-
+    </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button large half block outline (click)="load()" style="color:orange;border-color:black;">Clean</button>
-  <div class="tab">
-    <button ion-button class="tablinks" (click)="openCity(event, 'Me')">Clean</button>
-    <button ion-button class="tablinks" (click)="openCity(event, 'LightBulb')">Dirty</button>
+<ion-content text-center padding>
+  <div padding>
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="clean">
+      Clean
+    </ion-segment-button>
+    <ion-segment-button value="dirty">
+      Dirty
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'dirty'">
+      <ion-grid class="grid">
+      <ion-row>
+        <ion-col col-sm-4><img (click)="DirtyShirt()" src="./assets/images/shirt.png"></ion-col>
+        <ion-col col-sm-4><img (click)="DirtyPant()" src="./assets/images/pants.png"></ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-list>
+        <ion-item-sliding *ngFor="let todo of todos | async">
+          <ion-item>
+            {{ todo.text }}
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="danger" (click)="removeTodo(todo._id)">
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </button>
+          </ion-item-options>
+        </ion-item-sliding>
+
+      </ion-list>
+
+      <ion-fab right bottom>
+        <button ion-fab (click)="addTodo()"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'clean'">
+    <ion-item>
+    <ion-grid class="grid">
+    <ion-row>
+      <ion-col col-sm-4><img (click)="Shirt()" src="./assets/images/shirt.png"></ion-col>
+      <ion-col col-sm-4><img (click)="Pant()" src="./assets/images/pants.png"></ion-col>
+      </ion-row>
+    <ion-row>
+      <ion-col col-sm-4><img (click)="Hat()" src="./assets/images/hat.png"></ion-col>
+      <ion-col col-sm-4><img (click)="Shoe()" src="./assets/images/shoe.png"></ion-col>
+     </ion-row>
+    </ion-grid>
+</ion-item>
+  </ion-list>
+</div>
+  <!-- <div class="tab">
+    <button ion-button class="tablinks">Clean</button>
+    <button ion-button class="tablinks" (click)="load()">Dirty</button>
   </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-
-<img (click)="Shirt()"src="./assets/images/shirt.png" style="width:100px; height:100px;margin-left:11%;">
-<img  src="http://www.drodd.com/images14/black15.jpg" style="width:2px; height:100px;margin-left:8%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-      <img (click)="Pant()"src="./assets/images/pants.png" style="width:80px; height:100px;margin-left:4%;">
-      <hr>
-
-
-      <img (click)="Hat()" src="./assets/images/hat.png" style="width:100px; height:100px;margin-left:9%;">
-<img  src="http://www.drodd.com/images14/black15.jpg" style="width:2px; height:100px;margin-left:10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <img (click)="Shoe()" src="./assets/images/shoe.png" style="width:87px; height:50px;margin-left:4%;">
+    <ion-grid class="grid">
+    <ion-row>
+      <ion-col col-sm-4><img (click)="Shirt()" src="./assets/images/shirt.png"></ion-col>
+      <ion-col col-sm-4><img (click)="Pant()" src="./assets/images/pants.png"></ion-col>
+      </ion-row>
+    <ion-row>
+      <ion-col col-sm-4><img (click)="Hat()" src="./assets/images/hat.png"></ion-col>
+      <ion-col col-sm-4><img (click)="Shoe()" src="./assets/images/shoe.png"></ion-col>
+     </ion-row>
+    </ion-grid> -->
 
 
 

@@ -1,10 +1,16 @@
+import { TodoServiceProvider } from './../../providers/todo-service/todo-service';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams,AlertController, ToastController } from 'ionic-angular';
 import { AboutPage } from '../about/about'
 import { HatsPage } from '../hats/hats';
 import { PantsPage } from '../pants/pants';
 import { ShirtPage } from '../shirt/shirt';
 import { ShoesPage } from '../shoes/shoes';
+import { Observable } from 'rxjs/Observable';
+import { DirtypPage } from '../dirtyp/dirtyp';
+import { DirtysPage } from '../dirtys/dirtys';
+
+
 /**
  * Generated class for the ClosetPage page.
  *
@@ -17,24 +23,60 @@ import { ShoesPage } from '../shoes/shoes';
   templateUrl: 'closet.html',
 })
 export class ClosetPage {
+    todos: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public todoService:TodoServiceProvider, public alertCtrl: AlertController, public toastCtrl: ToastController) {
     this.initializeItems();
   }
 
-   openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-      }
+  loadTodos() {
+    this.todos = this.todoService.getTodos();
+  }
+
+  addTodo() {
+      let prompt = this.alertCtrl.create({
+        title: 'Dirty Clothes',
+        message: "Clothes you have to wash now...",
+        inputs: [
+          {
+            name: 'text',
+            placeholder: 'Remember to delete clothes that are clean!'
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancel'
+          },
+          {
+            text: 'Save',
+            handler: data => {
+              this.todoService.addTodo(data.text).subscribe(data => {
+                this.showToast(data.msg);
+                this.loadTodos();
+              });
+            }
+          }
+        ]
+      });
+      prompt.present();
+    }
+
+    removeTodo(id) {
+      this.todoService.deleteTodo(id).subscribe(data =>{
+        this.showToast(data.msg);
+        this.loadTodos();
+      //  duration:3000
+      });
+    //  toast.present();
+    }
+
+    private showToast(message: string) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        duration: 3000
+      });
+      toast.present();
+    }
 
   Shirt(){
     this.navCtrl.push(ShirtPage,{
@@ -56,6 +98,17 @@ export class ClosetPage {
       val: 'anishnirmal'
     })
   }
+  DirtyShirt(){
+    this.navCtrl.push(DirtysPage,{
+      val: 'anishnirmal'
+    })
+  }
+  DirtyPant(){
+    this.navCtrl.push(DirtypPage,{
+      val: 'anishnirmal'
+    })
+  }
+
 
 
     searchQuery: string = '';

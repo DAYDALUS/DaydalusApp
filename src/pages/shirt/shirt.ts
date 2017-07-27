@@ -19,18 +19,18 @@ export class ShirtPage {
   }
   ngOnInit() {
     this.photos = [
-      document.getElementById("redshirt")
+      document.getElementsByClassName("redshirt")
 
     ];
   }
 
   deletePhoto(index){
     let confirm = this.alertCtrl.create({
-      title: 'What do you want to do?',
+      title: 'Find Match or Delete?',
       message: '',
       buttons: [
         {
-          text: 'MATCH',
+          text: 'Match',
           handler: () => {
 
               this.navCtrl.push(ContactPage,{
@@ -40,7 +40,7 @@ export class ShirtPage {
           }
         },
         {
-          text: 'DELETE ',
+          text: 'Delete ',
           handler: () => {
             this.photos[index].style.display = "none"
             // this.photos.splice(index,1);

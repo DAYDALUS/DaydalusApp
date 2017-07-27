@@ -17,6 +17,9 @@ import { HatsPage } from '../pages/hats/hats';
 import { PantsPage } from '../pages/pants/pants';
 import { ShirtPage } from '../pages/shirt/shirt';
 import { ShoesPage } from '../pages/shoes/shoes';
+import { DirtypPage } from '../pages/dirtyp/dirtyp';
+import { DirtysPage } from '../pages/dirtys/dirtys';
+
 
 
 
@@ -39,6 +42,8 @@ import { TodoServiceProvider } from '../providers/todo-service/todo-service';
     PantsPage,
     ShirtPage,
     ShoesPage,
+    DirtypPage,
+    DirtysPage
   ],
   imports: [
     HttpModule,
@@ -59,6 +64,8 @@ import { TodoServiceProvider } from '../providers/todo-service/todo-service';
     PantsPage,
     ShirtPage,
     ShoesPage,
+    DirtypPage,
+    DirtysPage
   ],
   providers: [
     StatusBar,
