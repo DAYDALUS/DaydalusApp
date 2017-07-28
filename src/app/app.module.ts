@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Camera } from '@ionic-native/camera';
 import { HttpModule } from '@angular/http';
-//import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransfer } from '@ionic-native/file-transfer';
 //PAGES
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -71,6 +71,7 @@ import { TodoServiceProvider } from '../providers/todo-service/todo-service';
     StatusBar,
     SplashScreen,
     Camera,
+    FileTransfer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AppSettingsProvider,
     TodoServiceProvider
