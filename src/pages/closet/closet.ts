@@ -9,6 +9,10 @@ import { ShoesPage } from '../shoes/shoes';
 import { Observable } from 'rxjs/Observable';
 import { DirtypPage } from '../dirtyp/dirtyp';
 import { DirtysPage } from '../dirtys/dirtys';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+
+
 
 
 /**
@@ -24,10 +28,54 @@ import { DirtysPage } from '../dirtys/dirtys';
 })
 export class ClosetPage {
     todos: Observable<any>;
+    public photos: any;
+    public base64Image: string;
+    pet: string = "clean";
+    splash = true;
+    //secondPage = SecondPagePage
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public todoService:TodoServiceProvider, public alertCtrl: AlertController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public todoService:TodoServiceProvider, private alertCtrl: AlertController, public toastCtrl: ToastController,private camera: Camera, private transfer: FileTransfer)
+  {
     this.initializeItems();
+    //this.pet = "clean";
   }
+
+  ionViewDidLoad() {
+    setTimeout(() => this.splash = false, 4000);
+  }
+
+  ngOnInit() {
+    this.photos = [];
+  }
+
+  takePhoto(){
+  //   const options: CameraOptions = {
+  //   quality: 50,
+  //   destinationType: this.camera.DestinationType.DATA_URL,
+  //   encodingType: this.camera.EncodingType.JPEG,
+  //   mediaType: this.camera.MediaType.PICTURE
+  // }
+
+  this.camera.getPicture().then((imageData) => {
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    fileTransfer.upload(imageData, 'https://daydalus.herokuapp.com/uploadImage').then((data)=> {
+      console.log('file uploaded');
+
+    }, (error)=> {
+      console.log(error)
+    });
+
+
+    // imageData is either a base64 encoded string or a file URI
+    // If it's base64:
+    // this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    // this.photos.push(this.base64Image);
+    // this.photos.reverse();
+  }, (err) => {
+    console.log("There was an error taking the photo.")
+    // Handle error
+  });
+}
 
   loadTodos() {
     this.todos = this.todoService.getTodos();
@@ -129,9 +177,7 @@ export class ClosetPage {
       val: 'anishnirmal'
     })
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ClosetPage');
-  }
+
   getItems(ev: any) {
     // Reset items back to all of the items
     this.initializeItems();

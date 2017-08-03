@@ -5,11 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="primary">
-    <ion-title>HATS</ion-title>
-  </ion-navbar>
-
+    <ion-title>Hats</ion-title>
+    <ion-buttons end>
+      <button (click)="takePhoto()" ion-button icon-only color="white">
+        <ion-icon (click)="takePhoto()" name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+</ion-navbar>
 </ion-header>
 
 

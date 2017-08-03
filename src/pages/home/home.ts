@@ -48,6 +48,7 @@ export class HomePage {
   }
 
   takePhoto(){
+
   //   const options: CameraOptions = {
   //   quality: 50,
   //   destinationType: this.camera.DestinationType.DATA_URL,
@@ -57,7 +58,7 @@ export class HomePage {
 
   this.camera.getPicture().then((imageData) => {
     const fileTransfer: FileTransferObject = this.transfer.create();
-    fileTransfer.upload(imageData, 'https://test-app-scla.herokuapp.com/uploadImage').then((data)=> {
+    fileTransfer.upload(imageData, 'https://daydalus.herokuapp.com/uploadImage').then((data)=> {
       console.log('file uploaded');
 
     }, (error)=> {
@@ -71,6 +72,25 @@ export class HomePage {
     // this.photos.push(this.base64Image);
     // this.photos.reverse();
   }, (err) => {
+    console.log("There was an error taking the photo.")
+    // Handle error
+  });
+}
+
+savePhoto(){
+
+  const options: CameraOptions = {
+   quality: 50,
+   destinationType: this.camera.DestinationType.DATA_URL,
+   encodingType: this.camera.EncodingType.JPEG,
+   mediaType: this.camera.MediaType.PICTURE
+ }
+
+  this.camera.getPicture(options).then((imageData) =>{
+    this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    this.photos.push(this.base64Image);
+    this.photos.reverse();
+  },(err) => {
     console.log("There was an error taking the photo.")
     // Handle error
   });

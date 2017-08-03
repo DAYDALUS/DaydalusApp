@@ -5,25 +5,39 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="primary">
-    <ion-title>SHOES</ion-title>
-  </ion-navbar>
-
+    <ion-title>Shoes</ion-title>
+    <ion-buttons end>
+      <button (click)="takePhoto()" ion-button icon-only color="white">
+        <ion-icon (click)="takePhoto()" name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+</ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
   <ion-grid class="grid">
   <ion-row>
-    <ion-col col-sm-4><img src="https://media.kohlsimg.com/is/image/kohls/2375536_Black_White?wid=240&hei=240&op_sharpen=1"></ion-col>
-    <ion-col col-sm-4><img src="http://scene7.zumiez.com/is/image/zumiez/pdp_hero/Vans-Sk8-Hi-Pro-Skate-Shoes-_260063-front.jpg"></ion-col>
-    <ion-col col-sm-4><img src="http://cdn.shopify.com/s/files/1/0727/8091/products/shoes-light-up-shoes-1_grande.jpeg?v=1470448315"></ion-col>
+    <ion-col col-sm-4><img (click)="nikeshoe()" src="https://media.kohlsimg.com/is/image/kohls/2375536_Black_White?wid=240&hei=240&op_sharpen=1"></ion-col>
+    <ion-col col-sm-4><img (click)="vanshoe()" src="http://www.novoidplus.com/shop/images/vans_era_red_grey_1.jpg"></ion-col>
+    <ion-col col-sm-4><img (click)="brownshoe()" src="https://slimages.macysassets.com/is/image/MCY/products/5/optimized/2544415_fpx.tif?bgc=255,255,255&wid=224&qlt=90,0&layer=comp&op_sharpen=0&resMode=bicub&op_usm=0.7,1.0,0.5,0&fmt=jpeg"></ion-col>
     </ion-row>
   <ion-row>
-    <ion-col col-sm-4><img src="http://scene7.zumiez.com/is/image/zumiez/pdp_hero/Vans-Walker-Pro-Black-Blue-Fog-Skate-Shoes-_275046-front-US.jpg"></ion-col>
-    <ion-col col-sm-4><img src="http://esquireuk.cdnds.net/16/07/1600x800/landscape-original-nike-running-shoe-promo-43-jpg-4532e42f.jpg"></ion-col>
-    <ion-col col-sm-4><img src="https://cdn.shopify.com/s/files/1/0164/7876/products/Eco_Womens_Classic_Shoes_Red_Front.jpg?v=1448070630"></ion-col>
+    <ion-col col-sm-4><img (click)="blackvanshoe()" src="http://scene7.zumiez.com/is/image/zumiez/pdp_hero/Vans-Walker-Pro-Black-Blue-Fog-Skate-Shoes-_275046-front-US.jpg"></ion-col>
+    <ion-col col-sm-4><img (click)="rosheshoe()" src="https://images.nike.com/is/image/DotCom/PDP_THUMB_RETINA/511881_603/roshe-one-mens-shoe.jpg"></ion-col>
+    <ion-col col-sm-4><img (click)="grayshoe()" src="http://images.footlocker.com/pi/19151003/large/nike-air-huarache-run-ultra-womens"></ion-col>
    </ion-row>
+</ion-grid>
+<ion-grid>
+<ion-row>
+<ion-col col-6 *ngFor="let photo of photos; let id = index">
+  <!--ACTUAL PHOTO-->
+  <ion-card class="block">
+    <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+    <img [src]="photo.image" *ngIf="photo.image">
+  </ion-card>
+</ion-col>
+</ion-row>
 </ion-grid>
 </ion-content>
