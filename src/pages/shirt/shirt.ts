@@ -4,6 +4,7 @@ import { ContactPage } from '../contact/contact'
 import { ClosetPage } from '../closet/closet';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Observable } from 'rxjs/Observable';
+//SENDING TO IMAGE RECOGNITION
 import { FileTransfer, FileTransferObject, FileUploadOptions } from '@ionic-native/file-transfer';
 import { ResultsforpPage } from '../resultsforp/resultsforp';
 import 'rxjs/add/operator/map';
@@ -12,14 +13,7 @@ import { BarneyPage } from '../barney/barney';
 import { BlackbuttonPage } from '../blackbutton/blackbutton';
 import { BlueshirtPage } from '../blueshirt/blueshirt';
 
-
-
-/**
- * Generated class for the ShirtPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+//GO TO LINE 144 FOR UPLOADING TO
 
 @Component({
   selector: 'page-shirt',
@@ -35,15 +29,11 @@ export class ShirtPage {
   ngOnInit() {
     this.loadShirts();
   }
-// results(){
-//   this.navCtrl.push(ResultsforpPage,{
-//     val: 'jonathan'
-//   })
-// }
+//HARDCODE
 results(){
   let confirm = this.alertCtrl.create({
     title: 'Find Match or Delete?',
-    message: '',
+    message: 'Pink Button-Up',
     buttons: [
       {
         text: 'Match',
@@ -58,8 +48,7 @@ results(){
       {
         text: 'Delete ',
         handler: () => {
-          //this.photos.splice(index,1);
-          // this.photos.splice(index,1);
+
         }
       }
     ]
@@ -67,16 +56,10 @@ results(){
 confirm.present();
 }
 
-//
-// barney(){
-//   this.navCtrl.push(BarneyPage,{
-//     val: 'jonathan'
-//   })
-// }
 barney(){
   let confirm = this.alertCtrl.create({
     title: 'Find Match or Delete?',
-    message: '',
+    message: 'Purple and Green T-Shirt',
     buttons: [
       {
         text: 'Match',
@@ -91,23 +74,19 @@ barney(){
       {
         text: 'Delete ',
         handler: () => {
-          //this.photos.splice(index,1);
-          // this.photos.splice(index,1);
+
         }
       }
     ]
   });
 confirm.present();
 }
-// blackbutton(){
-//   this.navCtrl.push(BlackbuttonPage,{
-//     val: 'jonathan'
-//   })
-// }
+
+
 blackbutton(){
   let confirm = this.alertCtrl.create({
     title: 'Find Match or Delete?',
-    message: '',
+    message: 'Gray Button-Up ',
     buttons: [
       {
         text: 'Match',
@@ -122,23 +101,17 @@ blackbutton(){
       {
         text: 'Delete ',
         handler: () => {
-          //this.photos.splice(index,1);
-          // this.photos.splice(index,1);
         }
       }
     ]
   });
 confirm.present();
 }
-// blueshirt(){
-//   this.navCtrl.push(BlueshirtPage,{
-//     val: 'jonathan'
-//   })
-// }
+
 blueshirt(){
   let confirm = this.alertCtrl.create({
     title: 'Find Match or Delete?',
-    message: '',
+    message: 'Blue T-Shirt',
     buttons: [
       {
         text: 'Match',
@@ -153,8 +126,7 @@ blueshirt(){
       {
         text: 'Delete ',
         handler: () => {
-          //this.photos.splice(index,1);
-          // this.photos.splice(index,1);
+
         }
       }
     ]
@@ -162,19 +134,14 @@ blueshirt(){
 confirm.present();
 }
 
-
+//CODE FOR LOADING SHIRTS
   loadShirts(){
     this.http.get('https://daydalus.herokuapp.com/pullShirts').map(res => res.json()).subscribe(data=> {
       this.photos = data;
     })
   }
   takePhoto(){
-  //   const options: CameraOptions = {
-  //   quality: 50,
-  //   destinationType: this.camera.DestinationType.DATA_URL,
-  //   encodingType: this.camera.EncodingType.JPEG,
-  //   mediaType: this.camera.MediaType.PICTURE
-  // }
+
   const option: FileUploadOptions = {
     headers: {clothingType:'shirt'}
   }
@@ -188,11 +155,6 @@ confirm.present();
     });
 
 
-    // imageData is either a base64 encoded string or a file URI
-    // If it's base64:
-    // this.base64Image = 'data:image/jpeg;base64,' + imageData;
-    // this.photos.push(this.base64Image);
-    // this.photos.reverse();
     }, (err) => {
       console.log("There was an error taking the photo.")
       // Handle error
@@ -223,7 +185,7 @@ savePhoto(){
   deletePhoto(index){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Red T-Shirt',
       buttons: [
         {
           text: 'Match',

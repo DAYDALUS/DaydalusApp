@@ -12,28 +12,14 @@
     <button ion-button (click)="load3()">Clean</button>
     <button ion-button class="tablinks">Dirty</button>
   </div>
+
+  <!-- DIFFERENT TYPES OF DIRTY CLOTHES -->
     <ion-grid class="grid">
     <ion-row>
       <ion-col col-sm-4><img (click)="Shirt()" src="./assets/images/shirt.png"></ion-col>
       <ion-col col-sm-4><img (click)="Pant()" src="./assets/images/pants.png"></ion-col>
       </ion-row>
     </ion-grid>
-  <!-- <button ion-button large half block outline (click)="load3()" style="color:orange;border-color:black;">Dirty</button>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-
-<img (click)="Shirt()"src="./assets/images/shirt.png" style="width:100px; height:100px;margin-left:11%;">
-<img  src="http://www.drodd.com/images14/black15.jpg" style="width:2px; height:100px;margin-left:8%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-      <img (click)="Pant()"src="./assets/images/pants.png" style="width:80px; height:100px;margin-left:4%;">
-      <hr>
-
-
-      <img (click)="Hat()" src="./assets/images/hat.png" style="width:100px; height:100px;margin-left:9%;">
-<img  src="http://www.drodd.com/images14/black15.jpg" style="width:2px; height:100px;margin-left:10%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <img (click)="Shoe()" src="./assets/images/shoe.png" style="width:87px; height:50px;margin-left:4%;"> -->
 
   <ion-list>
     <ion-item-sliding *ngFor="let todo of todos | async">
@@ -49,29 +35,8 @@
     </ion-item-sliding>
 
   </ion-list>
-
+<!-- ADDING DIRTY CLOTHES -->
   <ion-fab right bottom>
     <button ion-fab (click)="addTodo()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>
-<!-- <ion-header>
-  <ion-navbar>
-    <ion-title>
-      CAMERA
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <ion-grid>
-  <ion-row>
-<ion-card>
-<img src="https://i.ytimg.com/vi/XIMLoLxmTDw/hqdefault.jpg" style="height:600px;"/>
-<ion-icon class="picture" name="radio-button-off" style="align:center;"></ion-icon>
-<ion-icon class="match" name="checkmark-circle-outline" (click)="load()" style="float:right;"></ion-icon>
-</ion-card>
-  </ion-row>
-
-  </ion-grid>
-
-</ion-content> -->

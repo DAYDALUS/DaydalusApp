@@ -41,7 +41,7 @@ export class ShoesPage {
   nikeshoe(){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Black Nike Roshe',
       buttons: [
         {
           text: 'Match',
@@ -73,7 +73,7 @@ export class ShoesPage {
   rosheshoe(){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Red Roshes',
       buttons: [
         {
           text: 'Match',
@@ -106,7 +106,7 @@ export class ShoesPage {
   grayshoe(){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Gray Huaraches ',
       buttons: [
         {
           text: 'Match',
@@ -138,7 +138,7 @@ export class ShoesPage {
   brownshoe(){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Brown Dressing Shoes',
       buttons: [
         {
           text: 'Match',
@@ -170,7 +170,7 @@ export class ShoesPage {
   vanshoe(){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Red and Gray Vans',
       buttons: [
         {
           text: 'Match',
@@ -201,7 +201,7 @@ export class ShoesPage {
   blackvanshoe(){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Pure Black Vans',
       buttons: [
         {
           text: 'Match',

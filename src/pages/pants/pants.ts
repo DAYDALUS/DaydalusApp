@@ -67,7 +67,7 @@ export class PantsPage {
   brownjoggers(index){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Brown Joggers',
       buttons: [
         {
           text: 'Match',
@@ -94,7 +94,7 @@ export class PantsPage {
   cargopant(index){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Cargo Pants',
       buttons: [
         {
           text: 'Match',
@@ -121,7 +121,7 @@ export class PantsPage {
   graysweat(index){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Gray Sweatpants',
       buttons: [
         {
           text: 'Match',
@@ -148,7 +148,7 @@ export class PantsPage {
   blackpants(index){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Black Pants',
       buttons: [
         {
           text: 'Match',
@@ -175,7 +175,7 @@ confirm.present();
 browncargo(index){
   let confirm = this.alertCtrl.create({
     title: 'Find Match or Delete?',
-    message: '',
+    message: 'Brown Cargo Pants',
     buttons: [
       {
         text: 'Match',
@@ -205,7 +205,7 @@ confirm.present();
   brownslacks(index){
     let confirm = this.alertCtrl.create({
       title: 'Find Match or Delete?',
-      message: '',
+      message: 'Khaki Slacks',
       buttons: [
         {
           text: 'Match',

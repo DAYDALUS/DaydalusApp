@@ -1,9 +1,3 @@
-<!--
-  Generated template for the ClosetPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
   <div class="flb">
     <div class="Aligner-item Aligner-item--top"></div>
@@ -15,15 +9,11 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>Closet</ion-title>
-    <!-- <ion-buttons end>
-      <button (click)="takePhoto()" ion-button icon-only color="white">
-        <ion-icon (click)="takePhoto()" name="camera"></ion-icon>
-      </button>
-    </ion-buttons> -->
+
 </ion-navbar>
 </ion-header>
 
-
+<!-- CODE FOR DIRTY AND CLEAN -->
 
 <ion-content text-center padding>
   <div item-start padding>
@@ -46,7 +36,7 @@
         </ion-row>
       </ion-grid>
       <ion-list>
-
+<!-- ADDING AND REMOVING DIRTY CLOTHES -->
         <ion-item-sliding *ngFor="let todo of todos | async">
           <ion-item>
             {{ todo.text }}
@@ -65,7 +55,7 @@
         <button ion-fab (click)="addTodo()"><ion-icon name="add"></ion-icon></button>
       </ion-fab>
   </ion-list>
-
+<!-- CODE FOR TRANSITIONING INTO DIFFERENT CLOSETS -->
   <ion-list *ngSwitchCase="'clean'">
     <ion-item>
     <ion-grid class="grid">
@@ -81,21 +71,5 @@
 </ion-item>
   </ion-list>
 </div>
-  <!-- <div class="tab">
-    <button ion-button class="tablinks">Clean</button>
-    <button ion-button class="tablinks" (click)="load()">Dirty</button>
-  </div>
-    <ion-grid class="grid">
-    <ion-row>
-      <ion-col col-sm-4><img (click)="Shirt()" src="./assets/images/shirt.png"></ion-col>
-      <ion-col col-sm-4><img (click)="Pant()" src="./assets/images/pants.png"></ion-col>
-      </ion-row>
-    <ion-row>
-      <ion-col col-sm-4><img (click)="Hat()" src="./assets/images/hat.png"></ion-col>
-      <ion-col col-sm-4><img (click)="Shoe()" src="./assets/images/shoe.png"></ion-col>
-     </ion-row>
-    </ion-grid> -->
-
-
 
 </ion-content>
